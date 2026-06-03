@@ -12,6 +12,7 @@ const db = mysql.createConnection({
 db.connect((err) => {
   if (err) {
     console.error('Gagal koneksi ke MySQL:', err.message);
+    // Hapus process.exit() agar server tetap jalan
     return;
   }
   console.log('Berhasil koneksi ke MySQL!');
