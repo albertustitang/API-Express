@@ -1,9 +1,14 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; // ← Railway otomatis set PORT
 
 app.use(express.json());
+
+// Route default
+app.get('/', (req, res) => {
+  res.json({ message: 'API berjalan!' });
+});
 
 // Routes
 const authRoute = require('./routes/auth');
