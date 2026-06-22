@@ -1,8 +1,19 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const app = express();
-const PORT = process.env.PORT || 3000; // ← Railway otomatis set PORT
+const PORT = process.env.PORT || 3000;
 
+// Middleware
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'http://localhost:5173',
+    'https://albertustitandev.my.id',
+    'https://www.albertustitandev.my.id'
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 // Route default
